@@ -1,0 +1,559 @@
+/***
+! Rozdělit na úvodní stránku (sekce) a zbytek, aby se zabránilo zvytečnému načítání. !
+Struktura:
+
+@import - fonty, ..
+0. základní prvky ---
+	i.		speciální
+	ii.		standardní elementy
+	iii.	ovládací prvky + formuláře
+1. menu ---
+	i.		defaultní
+	ii.		kontrastní
+2. obsah ---
+	i. 		hlavička
+	ii.		o společnosti
+	iii.	studenti
+	iv. 	firmy
+	v.		o nás
+	vi.		kontakt
+	vii.	patička
+3. rychlé styly
+4. přídavné prvky stránky
+***/
+
+/* - @import - FONTY, ... - */
+@import url(http://fonts.googleapis.com/css?family=Righteous&subset=latin,latin-ext);
+/* 300, 400, 700 */
+@import url(https://fonts.googleapis.com/css?family=Comfortaa:400,300,700&subset=latin,latin-ext);
+
+/* dostupné skoro všechny tloušťky + kurzíva
+@import url(https://fonts.googleapis.com/css?family=Roboto&subset=latin,latin-ext); */
+
+
+/* --- (0) ZÁKLADNÍ PRVKY --- */
+/* - (i) SPECIÁLNÍ - */
+
+/* placeholder pro neinputy */
+[data-placeholder]:empty::before{
+	content: attr(data-placeholder);
+}
+
+/* efekt paralaxy s obrázky */
+.parallax-window {
+    min-height: 400px;
+    background: transparent;
+}
+
+/* - (ii) STANDARDNÍ ELEMENTY - */
+body {
+	font-size: 20px;
+	font-family: 'Comfortaa', Trebuchet MS, sans-serif;
+	color: #333;
+	background-color: #F9F7F6;
+	line-height: 1.5;
+}
+
+p {
+	margin: 1.3em 3em;
+	text-align: justify;
+}
+
+/* upřesnění selektorů jsou kvůli možným konfliktům */
+p a,
+span a {
+	position: relative;
+	padding: 0 .1em;
+	border-bottom: 2px solid rgba(255,176,125,1);
+	white-space: nowrap; /* nebude se zalamovat na nový řádek */
+
+	/* animace změny spodního ohraničení */
+	-webkit-transition: border .3s ease;
+	transition: border .3s ease;
+}
+p a:hover,
+span a:hover {
+	border-bottom: 2px solid rgba(255,176,125,0);
+}
+p a::before,
+span a::before {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #ffb07d;
+	z-index: -1;
+
+	/* animace změny výšky "pozadí" */
+	-webkit-transition: height .3s ease;
+	transition: height .3s ease;
+
+	height: 0%;
+}
+p a:hover::before,
+span a:hover::before {
+	height: 100%;
+}
+p a:active::before,
+span a:active::before {
+	background-color: #ff8b40;
+}
+
+a.simple{
+	color: inherit;
+}
+a.simple:hover{
+	color: rgba(255,176,125,.8);
+}
+a.simple:active{
+	color: rgba(255,176,125,1);
+}
+
+cite::before {
+	content: '„';
+	position: relative;
+	bottom: 0;
+	left: 2px;
+	font-size: 2em;
+}
+cite::after {
+	content: '”';
+	position: relative;
+	top: 15px;
+	right: 5px;
+	font-size: 2em;
+}
+
+/* - (iii) OVLÁDACÍ PRVKY - */
+fieldset {
+	margin: .5em 0;
+	padding: .8em 1.8em;
+	border: none;
+	border-top: 2px solid #333;
+	border-radius: 2px;
+	color: inherit;
+	background-color: rgba(0,0,0,.1);
+}
+
+legend {
+	padding: 3px;
+	margin: auto;
+	text-align: center;
+	font-size: 20px;
+	font-weight: 800;
+	background-color: rgba(255,100,0,.3);
+}
+
+.btn,
+button,
+input[type=submit] {
+	position: relative;
+	display: inline-block;
+	padding: 15px 32px;
+	margin: .5em .4em 1.5em;
+	font-size: 16px;
+	text-align: center;
+	text-decoration: none;
+	border: none;
+	color: white;
+	background-color: #888;
+	font-family: 'Comfortaa';
+	cursor: pointer;
+	float: none;
+	border-radius: 4px;
+}
+
+/* při přejetí/kliknutí ztmav */
+.btn:hover::after,
+.btn:active::after,
+button:hover::after,
+button:active:after,
+input[type=submit]:hover::after,
+input[type=submit]:active::after {
+	content: '';
+	position: absolute;
+	display: inline-block;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	width: 100%;
+	height: 100%;
+}
+.btn:hover::after,
+button:hover::after,
+input[type=submit]:hover::after {
+	background-color: rgba(0,0,0,.3);
+}
+.btn:active::after,
+button:active::after,
+input[type=submit]:active::after {
+	background-color: rgba(0,0,0,.5);
+}
+
+input[type=submit] {
+	background-color: #4CAF50;
+}
+
+.special-add {
+	padding: .5em 1em;
+}
+
+.preview {
+	display: inline-block;
+	padding: 0 1em;
+	border-bottom: 1px dashed rgba(0,0,0,.5);
+	font-size: .9em;
+	color: rgba(232,40,13,.9);
+}
+
+.highlight {
+	background-color: rgba(232,40,13,.9);
+}
+
+textarea,
+input[type=text],
+input[type=password] {
+	width: 100%;
+	padding: 0 .6em;
+	margin: .1em 0;
+	font-size: 16px;
+	overflow: auto;
+	font-family: 'Comfortaa', Arial, sans-serif;
+	border-radius: 3px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: darkgrey;
+}
+
+input[type=password] {
+	border-color: darkred;
+}
+
+select,
+input[type=number] {
+	margin: .1em 0;
+	font-size: 16px;
+	padding: 0 .6em;
+	height: 37px;
+	font-family: 'Comfortaa', Arial, sans-serif;
+	border-radius: 3px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: darkgrey;
+}
+
+input[type=number] {
+	width: 4em;
+}
+
+label {
+	display: inline-block;
+	margin: 1.5em .2em .4em;
+	cursor: pointer;
+}
+
+
+/* --- (1) MENU --- */
+.menu {
+	position: fixed;
+	z-index: 2;
+	width: 100%;
+
+	/* animace změny paddingu (-- změna vzdálenosti od vrchní části okna) */
+	-webkit-transition: padding .3s ease-in-out;
+	transition: padding .3s ease-in-out;
+}
+
+.menu ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0 3em;
+	z-index: 2;
+}
+
+.menu ul li {
+	display: inline;
+	margin: 0 .5em;
+}
+
+.menu a {
+	position: relative;
+	background-color: transparent;
+	color: #333;
+}
+
+.menu a::before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	bottom: -2px;
+	left: 0;
+	visibility: hidden; /* kdyby prohlížeč nepodporoval transform */
+
+	/* animace změny šířky dolního proužku */
+	-webkit-transform: scaleX(0);
+	transform: scaleX(0);
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+
+	height: 2px;
+	background-color: #E81C0D;
+}
+
+.menu-aktivni-tab a {
+	font-weight: bold;
+	color: #E81C0D;
+}
+
+.menu a:hover::before,
+.menu-aktivni-tab a::before {
+	visibility: visible; /* kdyby prohlížeč nepodporoval transform */
+	-webkit-transform: scaleX(1);
+	transform: scaleX(1);
+}
+
+.menu::before,
+.menu::after {
+	content: '';
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;
+
+	-webkit-transition: opacity .3s ease;
+	transition: opacity .3s ease;
+}
+
+/* bílé pozadí (trochu průhledné) */
+.menu-minimal::before,
+.menu-contrast::before {
+	background-color: #FFF;
+}
+
+/* čáry */
+.menu-minimal::after,
+.menu-contrast::after {
+	background: url(../img/menu_bg.png);
+}
+
+/* - (i) DEFAULTNÍ - */
+.menu-minimal {
+	padding: 3em 0 0;
+	color: rgba(255,255,255,.7);
+}
+
+/* bílé pozadí (trochu průhledné) */
+.menu-minimal::after {
+	opacity: 0;
+}
+
+/* čáry */
+.menu-minimal::before {
+	opacity: 0;
+}
+
+/* - (ii) KONTRASTNÍ - */
+.menu-contrast {
+	padding: 1em 0;
+	color: #333;
+	/* experimentální, funguje jen v Safari */
+	-webkit-backdrop-filter: blur(10px);
+	border-bottom: 1px solid #DDD;
+}
+
+/* bílé pozadí (trochu průhledné) */
+.menu-contrast::before {
+	opacity: .98;
+}
+
+/* čáry */
+.menu-contrast::after {
+	opacity: 0.1;
+}
+
+
+/* --- (2) OBSAH --- */
+.wrap {
+	padding: 1.5em;
+}
+/* - (i) HLAVIČKA - */
+header {
+	width: 100%;
+	height: 100%;
+	background-color: #DDD;
+}
+
+.hlavicka-nadpisy {
+	position: absolute;
+	top: 40%;
+	margin: 0 auto;
+	margin-top: -114px; /* vymyslet lepší alternativu, momentálně je nutnost měřit elementy pro vystředování */
+	text-align: center;
+	text-transform: uppercase;
+	color: #333;
+}
+
+header h1 {
+	margin-top: 0;
+	margin-bottom: 20px;
+	font-size: 100px;
+	font-family: 'Righteous', sans-serif;
+}
+
+header h2 {
+	margin: 0;
+	font-size: 30px;
+	font-weight: 700;
+	font-family: 'Comfortaa', sans-serif;
+}
+
+.hlavicka-btns {
+	display: inline-block;
+	position: absolute;
+	bottom: 8%;
+	left: 50%;
+	width: auto;
+	margin-left: -218px; /* vymyslet lepší alternativu, momentálně je nutnost měřit elementy pro vystředování */
+}
+
+.btn-studenti {
+	padding: 25px 42px;
+	font-size: 22px;
+	background-color: #E82C0C;
+}
+
+.btn-firmy {
+	padding: 25px 42px;
+	font-size: 22px;
+	background-color: #1B51B5;
+}
+
+/* - (ii) O SPOLEČNOSTI - */
+.o-prvni-sanci {
+
+}
+
+/* - (iii) STUDENTI - */
+.studenti {
+
+}
+
+/* - (iv) FIRMY - */
+.firmy {
+
+}
+
+/* - (v) O NÁS - */
+.o-nas {
+
+}
+
+/* - (vi) KONTAKT - */
+.kontakt {
+
+}
+
+/* - (vii) PATIČKA - */
+footer {
+	min-height: 250px;
+	background-color: #CCC;
+}
+
+
+/* --- (3) RYCHLÉ STYLY --- */
+.f-left{
+	float: left;
+}
+
+.f-right{
+	float: right;
+}
+
+.t-left {
+	text-align: left;
+}
+.t-center {
+	text-align: center;
+}
+.t-right {
+	text-align: right;
+}
+
+.center {
+	display: table; /* !! může zpusobovat problémy */
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.bez-odrazek {
+	padding-left: 0;
+}
+.bez-odrazek li {
+	list-style-type: none;
+}
+
+.has-error {
+	background-color: rgba(255, 0, 0, .9) !important;
+	border-color: red !important;
+}
+
+
+/* --- (4) PŘÍDAVNÉ PRVKY STRÁNKY --- */
+.notification-bar {
+	font-family: 'Consolas';
+	position: fixed;
+	bottom: 0;
+	font-size: 1.3;
+	padding: 1em;
+	background-color: rgba(255, 255, 255, .8);
+	text-align: center;
+	border-top: 3px solid #333;
+}
+
+.errors {
+	font-family: 'Consolas';
+	padding: 0 1em;
+	width: 100%;
+	font-size: 1em;
+	color: rgb(200, 30, 10);
+	background-color: rgba(255, 0, 0, .05);
+}
+
+.errors li:first-child {
+	padding-top: .5em;
+}
+
+.successes {
+	font-family: 'Consolas';
+	padding: 0 1em;
+	width: 100%;
+	font-size: 1em;
+	color: rgb(50, 150, 50);
+	background-color: rgba(0, 200, 0, .2);
+}
+
+.successes li:first-child {
+	padding-top: .5em;
+}
+
+.errors ul, .successes ul {
+	padding-left: 0;
+}
+
+.errors li, .successes li {
+	list-style-type: none;
+}
+
+#page-wrapper{
+	background-color: #F9F7F6;
+	width: 70%;
+	margin: 0 auto;
+}
+
+#page-wrapper .container{
+	background-color: rgba(255, 255, 255, .4);
+}

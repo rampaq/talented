@@ -1,0 +1,26 @@
+@media only screen and (-webkit-min-device-pixel-ratio: 0) and (min-device-width: 1025px) {
+
+	::-webkit-scrollbar {
+		width: 10px;
+		height: 10px;
+	}
+
+	::-webkit-scrollbar-button:start:decrement,
+	::-webkit-scrollbar-button:end:increment {
+		display: block;
+		height: 0px;
+		width: 0px;
+	}
+
+	::-webkit-scrollbar-track-piece {
+		background-color: rgba(0,0,0,.1); /*CCC*/
+	}
+
+	::-webkit-scrollbar-thumb:vertical {
+		background-color: #333; /*666*/
+	}
+
+	::-webkit-scrollbar-thumb:horizontal {
+		background-color: #333;
+	}
+}
