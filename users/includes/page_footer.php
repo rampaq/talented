@@ -19,14 +19,23 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 ?>
 <footer>
-    <p>Právní blbosti, copyright, kontakty(mail), odkazy...</p>
-    <div class="center">
-        <h4>Kontakt</h4>
-        <span>Pro informace a domluvu můžete psát na:</span><br/>
-        <span>email: xxx@neco.cz</span>
+    <div class="f-left">
+	    <p>
+	        <h3>Kontakt</h3>
+	        <h4>Pro informace a domluvu můžete psát na:</span></h4>
+	        e-mail: xxx@neco.cz
+	        <h4>Technické problémy</h4>
+	        e-mail: tomasfaikl@seznam.cz
+        </p>
     </div>
-    <hr>
-<?php if($your_public_key  == "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI") { echo "<h3 align='center'style='color:white'>For security reasons, you need to change your reCAPTCHA key.</h3>"; } ?>
+    <div class="f-right">
+    	<p>
+    		<h3>Sponzoři</h3>
+    		sposta významných jmen a organizací...
+		</p>
+    </div>
+
+<?php //if($your_public_key  == "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI") { echo "<h3 align='center'style='color:white'>For security reasons, you need to change your reCAPTCHA key.</h3>"; } ?>
 </footer>
 
 

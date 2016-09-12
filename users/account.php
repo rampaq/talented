@@ -29,7 +29,7 @@ $grav = get_gravatar(strtolower(trim($user->data()->email)));
 $get_info_id = $user->data()->id;
 // $groupname = ucfirst($loggedInUser->title);
 $raw = date_parse($user->data()->join_date);
-$signupdate = $raw['month']."/".$raw['day']."/".$raw['year'];
+$signupdate = $raw['day']."/".$raw['month']."/".$raw['year'];
 $userdetails = fetchUserDetails(NULL, NULL, $get_info_id); //Fetch user details
  ?>
 

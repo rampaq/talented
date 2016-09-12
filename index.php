@@ -40,28 +40,11 @@ require_once $abs_us_root.$us_url_root.'users/includes/header.php';
 	</ul>
 </div> <!-- end div.menu -->
 
-<div id="page-wrapper">
-<!--
-<?php
-/*
-	<?php if($user->isLoggedIn()){$uid = $user->data()->id;?>
-
-		<a class="btn btn-default" href="users/account.php" role="button">User Account &raquo;</a>
-	<?php }else{?>
-		<a class="btn btn-warning" href="users/login.php" role="button">Log In &raquo;</a>
-		<a class="btn btn-info" href="users/join.php" role="button">Sign Up &raquo;</a>
-	<?php } ?>
-	</p>
-	*/
-	?>
-	-->
-</div>
-
 <!-- ****** OBSAH ****** -->
 	<header>
 		<div class="hlavicka-nadpisy">
-			<h1>První šance</h1>
-			<h2><cite>Od studentů pro studenty</cite></h2>
+			<h1>Talented</h1>
+			<h2><cite>První šance od studentů pro studenty</cite></h2>
 		</div>
 		<div class="hlavicka-btns">
 			<a class="btn-studenti btn" href="#studenti">pro studenty</a>

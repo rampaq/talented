@@ -115,15 +115,21 @@ cite::before {
 	content: '„';
 	position: relative;
 	bottom: 0;
-	left: 2px;
+	left: -.12em;
 	font-size: 2em;
 }
 cite::after {
 	content: '”';
 	position: relative;
-	top: 15px;
-	right: 5px;
+	top: .2em;
+	right: -.05em;
 	font-size: 2em;
+}
+
+section {
+	margin-left: auto;
+	margin-right: auto;
+	width: 95%;
 }
 
 /* - (iii) OVLÁDACÍ PRVKY - */
@@ -393,22 +399,26 @@ header {
 	margin: 0 auto;
 	margin-top: -114px; /* vymyslet lepší alternativu, momentálně je nutnost měřit elementy pro vystředování */
 	text-align: center;
-	text-transform: uppercase;
 	color: #333;
 }
 
 header h1 {
 	margin-top: 0;
 	margin-bottom: 20px;
-	font-size: 100px;
+	font-size: 150px;
+	text-transform: uppercase;
 	font-family: 'Righteous', sans-serif;
 }
 
 header h2 {
+	display: inline-block;
+	width: auto;
 	margin: 0;
-	font-size: 30px;
-	font-weight: 700;
+	font-size: 25px;
+	font-weight: 300;
 	font-family: 'Comfortaa', sans-serif;
+	border-top: 1px solid rgba(200, 200, 200, .9);
+	padding: .5em 1em 0;
 }
 
 .hlavicka-btns {
@@ -459,8 +469,17 @@ header h2 {
 
 /* - (vii) PATIČKA - */
 footer {
+	overflow: auto;
 	min-height: 250px;
-	background-color: #CCC;
+	padding: 2em;
+	margin-top: 3em;
+	border-top: 1px dashed #777;
+	background-color: #AAA;
+}
+
+footer div{
+	display: block;
+	width: auto;
 }
 
 
@@ -549,8 +568,7 @@ footer {
 }
 
 #page-wrapper{
-	background-color: #F9F7F6;
-	width: 70%;
+	background-color: #EEE;
 	margin: 0 auto;
 }
 
