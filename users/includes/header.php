@@ -83,7 +83,7 @@ if($settings->track_guest == 1){
 	<link rel=stylesheet href="<?php echo $resource_abs_url;?>css/dialog/dialog-sally.css">
 
 	<script src="<?php echo $resource_abs_url;?>js/jquery-3.0.0.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> <!-- kvůli paralaxe -->
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> <!-- kvůli paralaxe -->
 
 	<script src="<?php echo $resource_abs_url;?>js/dialog/snap.svg-min.js"></script>
 	<script src="<?php echo $resource_abs_url;?>js/dialog/modernizr.custom.js"></script>

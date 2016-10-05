@@ -11,9 +11,17 @@ require_once $abs_us_root.$us_url_root.'users/includes/header.php';
 ?>
 
 <script src="<?php echo $resource_abs_url;?>js/class/Menu.js"></script>
+<script>
+// pro malé zařízení nezobrazovat animaci
+if( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) ) {
+	$.getScript("js/p5/p5.min.js");
+	$.getScript("js/p5/hsb2rgb.js");
+	$.getScript("js/hlavicka-anim.min.js");
+}
+</script>
 
 <!-- INDEX menu -->
-<div class="menu menu-minimal" id="menu" data-treshold=".hlavicka-nadpisy">
+<div class="menu menu-minimal" id="menu" data-treshold=".hlavicka-nadpisy h1">
 	<ul>
 		<li><a href="#" onclick="$( 'html,body' ).animate({scrollTop: 0},'slow');">↑</a></li>
 		<li><a href="#o-prvni-sanci">O První šanci</a></li>
@@ -46,13 +54,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/header.php';
 			<h1>Talented</h1>
 			<h2><cite>První šance od studentů pro studenty</cite></h2>
 		</div>
-		<div class="hlavicka-btns">
-			<a class="btn-studenti btn" href="#studenti">pro studenty</a>
-			<a class="btn-firmy btn" href="#firmy">pro firmy</a>
-		</div>
-		<div class="arrow">
-
-		</div>
+		<div id="hlavicka-anim"></div>
 	</header>
 
 	<section class="uvod">
