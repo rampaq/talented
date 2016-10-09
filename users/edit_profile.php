@@ -66,7 +66,7 @@ if(!empty($_POST)) {
 				<div class="well">
 					<div class="row">
 						<div class="col-xs-12 col-md-2">
-							<p><img src="<?=$grav; ?>" alt=""class="left-block img-thumbnail" alt="Generic placeholder thumbnail"></p>
+							<p><img src="<?=($userdetails->avatar_path)?$userdetails->avatar_path:$resource_abs_url.'img/avatars/default.png'; ?>" alt="Profile picture" class="left-block img-thumbnail" alt="Generic placeholder thumbnail"></p>
 						</div>
 						<div class="col-xs-12 col-md-10">
 						<h1><?=ucfirst($user->data()->email)?>'s Profile</h1>
@@ -92,13 +92,7 @@ if(!empty($_POST)) {
     </div> <!-- /container -->
 
 </div> <!-- /#page-wrapper -->
-<!-- If you disable this script below you will get a standard textarea with NO WYSIWYG editor. That simple -->
-<script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
-<script>
-tinymce.init({
-  selector: '#mytextarea'
-});
-</script>
+
 
     <!-- footers -->
 <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>

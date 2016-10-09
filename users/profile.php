@@ -45,7 +45,7 @@ if(isset($_GET['id']))
 
 	$usemail = ucfirst($thatUser->email)."'s Profile";
 	$grav = get_gravatar(strtolower(trim($thatUser->email)));
-	$useravatar = '<img src="'.$grav.'" class="img-thumbnail" alt="'.$usemail.'">';
+	$useravatar = '<img src="'.(($thatUser->avatar_path)?$thatUser->avatar_path:$resource_abs_url.'img/avatars/default.png').'" class="img-thumbnail" alt="'.$usemail.'">';
 	$usbio = html_entity_decode($thatUser->bio);
 	//Uncomment out the line below to see what's available to you.
 	//dump($thisUser);

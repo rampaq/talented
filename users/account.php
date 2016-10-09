@@ -38,7 +38,7 @@ $userdetails = fetchUserDetails(NULL, NULL, $get_info_id); //Fetch user details
 <div class="well">
 <div class="row">
 	<div class="col-xs-12 col-md-3">
-		<p><img src="<?=$grav; ?>" class="img-thumbnail" alt="Generic placeholder thumbnail"></p>
+		<a href="user_settings.php"><img src="<?=($userdetails->avatar_path)?$userdetails->avatar_path:$resource_abs_url.'img/avatars/default.png'; ?>" class="img-thumbnail" alt="Profilový obrázek"></a>
 		<p><a href="user_settings.php" class="btn btn-primary">Upravit údaje</a></p>
 		<p><a class="btn btn-primary " href="profile.php?id=<?=$get_info_id;?>" role="button">Public Profile</a></p>
 
@@ -54,6 +54,21 @@ $userdetails = fetchUserDetails(NULL, NULL, $get_info_id); //Fetch user details
 </div> <!-- /container -->
 
 </div> <!-- /#page-wrapper -->
+
+<!-- PŘIŘAZENÍ HANDLERŮ -->
+<script>
+	$('[data-dialog]').each(function(index, toggleEl){
+
+		var dialog = document.getElementById( $(toggleEl).attr('data-dialog') ),
+			dlg = new DialogFx( dialog ),
+			dlg_action = new DialogAct( dialog );
+		var form = $( 'form', dialog ),
+			add_btn = $( '.special-add', dialog );
+
+		// přiřazení přepnutí stavu dialogu při kliknutí na spuštěcí element
+		toggleEl.addEventListener( 'click', dlg.toggle.bind(dlg) );
+	});
+</script>
 
 <!-- footers -->
 <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>

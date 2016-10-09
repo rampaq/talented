@@ -10,18 +10,18 @@ require_once 'users/init.php';
 require_once $abs_us_root.$us_url_root.'users/includes/header.php';
 ?>
 
-<script src="<?php echo $resource_abs_url;?>js/class/Menu.js"></script>
+<link rel=stylesheet href="<?=$resource_abs_url;?>css/main-pages.css"> <!-- speciální styly pro hlavní stránku -->
 <script>
 // pro malé zařízení nezobrazovat animaci
 if( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) ) {
 	$.getScript("js/p5/p5.min.js");
 	$.getScript("js/p5/hsb2rgb.js");
-	$.getScript("js/hlavicka-anim.min.js");
+	$.getScript("js/animation/header-logo.min.js");
 }
 </script>
 
 <!-- INDEX menu -->
-<div class="menu menu-minimal" id="menu" data-treshold=".hlavicka-nadpisy h1">
+<div class="menu menu-minimal" id="menu" data-treshold=".header-titles h1">
 	<ul>
 		<li><a href="#" onclick="$( 'html,body' ).animate({scrollTop: 0},'slow');">↑</a></li>
 		<li><a href="#o-prvni-sanci">O První šanci</a></li>
@@ -50,14 +50,14 @@ if( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navi
 
 <!-- ****** OBSAH ****** -->
 	<header>
-		<div class="hlavicka-nadpisy">
+		<div class="header-titles">
 			<h1>Talented</h1>
 			<h2><cite>První šance od studentů pro studenty</cite></h2>
 		</div>
-		<div id="hlavicka-anim"></div>
+		<div id="header-animation"></div>
 	</header>
 
-	<section class="uvod">
+	<section id="uvod">
 		<p>
 			Považuješ se za nadaného a talentovaného středoškoláka, chceš se ve svém oboru zdokonalovat, ale nemáš možnost? Uvítal bys praxi nebo stáž u firmy, která by tvůj obor dokázala plně rozvinout a umožňovala ti v něm možný budoucí kariérní růst ? Nebo jen hledáš brigádu, která ti dá i něco víc než peníze?
 		</p>
@@ -66,7 +66,7 @@ if( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navi
 		</p>
 	</section>
 
-	<section class="o-prvni-sanci" id="o-prvni-sanci">
+	<section id="o-prvni-sanci">
 		<h2>O První šanci</h2>
 		<p>
 			Jsme mladá ambiciózní firma, která studentům zprostředkovává brigádu, praxi nebo stáž za účelem získání tolik požadované praxe v prvním zaměstnání.
@@ -80,7 +80,7 @@ if( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navi
 		</p>
 	</section> <!--end section.o-prvni-sanci-->
 
-	<section class="studenti" id="studenti">
+	<section id="studenti">
 		<h2>Výhody pro studenty</h2>
 		<p>
 			Pojď s námi otevřít pomyslné dveře otevírající pracovní svět, ve kterém máš jako student, nebo studentka mnoho možností, jak se uplatnit!
@@ -93,15 +93,15 @@ if( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navi
 		</p>
 	</section> <!--end section.studenti-->
 
-	<section class="firmy" id="firmy">
+	<section id="firmy">
 		<h2>Spolupráce s firmami</h2>
 	</section> <!--end section.firmy-->
 
-	<section class="o-nas">
+	<section id="o-nas">
 		<h2>O nás</h2>
 	</section> <!--end section.o-nas-->
 
-	<section class="kontakt" id="kontakt">
+	<section id="kontakt">
 		<h2>Kontakt</h2>
 		<h3>Napište nám!</h3>
 
@@ -109,7 +109,7 @@ if( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navi
 			<div class="t-left">
 			<fieldset>
 				<legend>Napište nám!</legend>
-				<ul class="bez-odrazek">
+				<ul class="no-bullets">
 					<li>
 						<input type="text" name="email" placeholder="*e-mail" size="30">
 					</li>
@@ -124,8 +124,6 @@ if( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navi
 			</div>
 		</form>
 	</section> <!--end section.kontakt-->
-
-	<script src="<?php echo $resource_abs_url;?>js/menu-initialize.js"></script>
 
 <!-- footers -->
 <?php //require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>

@@ -10,14 +10,7 @@ Struktura:
 1. menu ---
 	i.		defaultní
 	ii.		kontrastní
-2. obsah ---
-	i. 		hlavička
-	ii.		o společnosti
-	iii.	studenti
-	iv. 	firmy
-	v.		o nás
-	vi.		kontakt
-	vii.	patička
+2. struktura
 3. rychlé styly
 4. přídavné prvky stránky
 ***/
@@ -385,95 +378,9 @@ label {
 }
 
 
-/* --- (2) OBSAH --- */
+/* --- (2) STRUKTURA --- */
 .wrap {
 	padding: 1.5em;
-}
-/* - (i) HLAVIČKA - */
-header {
-	width: 100%;
-	height: 80%;
-	background-color: rgb(10, 10, 10);
-}
-
-.hlavicka-nadpisy {
-	position: absolute;
-	top: 50%;
-	margin: 0 auto;
-	text-align: center;
-	color: #CCC;
-}
-
-header h1 {
-	margin-top: -165px;
-	margin-bottom: 20px;
-	font-size: 150px;
-	text-transform: uppercase;
-	font-family: 'Righteous', sans-serif;
-}
-
-header h2 {
-	position: relative;
-	z-index: 2;
-	display: inline-block;
-	width: auto;
-	font-size: 25px;
-	font-weight: 300;
-	font-family: 'Comfortaa', sans-serif;
-	border-top: 1px solid rgba(100, 100, 100, .8);
-	padding: .5em 1em 0;
-}
-
-.hlavicka-btns {
-	display: inline-block;
-	position: absolute;
-	bottom: 8%;
-	left: 50%;
-	width: auto;
-	margin-left: -218px; /* vymyslet lepší alternativu, momentálně je nutnost měřit elementy pro vystředování */
-}
-
-.btn-studenti {
-	padding: 25px 42px;
-	font-size: 22px;
-	background-color: #E82C0C;
-}
-
-.btn-firmy {
-	padding: 25px 42px;
-	font-size: 22px;
-	background-color: #1B51B5;
-}
-
-#hlavicka-anim{
-	position: absolute;
-	z-index: 1;
-	margin: 0 auto;
-}
-
-/* - (ii) O SPOLEČNOSTI - */
-.o-prvni-sanci {
-
-}
-
-/* - (iii) STUDENTI - */
-.studenti {
-
-}
-
-/* - (iv) FIRMY - */
-.firmy {
-
-}
-
-/* - (v) O NÁS - */
-.o-nas {
-
-}
-
-/* - (vi) KONTAKT - */
-.kontakt {
-
 }
 
 /* - (vii) PATIČKA - */
@@ -517,10 +424,10 @@ footer div{
 	margin-left: auto;
 }
 
-.bez-odrazek {
+.no-bullets {
 	padding-left: 0;
 }
-.bez-odrazek li {
+.no-bullets li {
 	list-style-type: none;
 }
 

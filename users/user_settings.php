@@ -19,6 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 ?>
 <?php require_once '../users/init.php'; ?>
+<?php require_once $abs_us_root.$us_url_root.'users/classes/class.upload.php'; ?>
 <?php require_once $abs_us_root.$us_url_root.'users/includes/header.php'; ?>
 <?php require_once $abs_us_root.$us_url_root.'users/includes/navigation.php'; ?>
 
@@ -367,6 +368,64 @@ if(!empty($_POST)) {
 		$edu_opinion=$userdetails->edu_opinion;
 	}
 
+	//avatar!
+	if ($_FILES['avatar_path']){
+		$handle = new Upload($_FILES['avatar_path']);
+
+		if ($handle->uploaded) {
+        // yes, the file is on the server
+        // now, we start the upload 'process'. That is, to copy the uploaded file
+        // from its temporary location to the wanted location
+        // It could be something like $handle->Process('/home/www/my_uploads/');
+		$handle->allowed = array('image/*');
+		$handle->image_convert = 'png';
+		$filename = 'av_'.$userId;
+       	$handle->file_new_name_body = $filename; //rename to av_01.jpg
+       	$handle->image_resize = true;
+       	$handle->image_ratio = true; // 300px je hraniční velikost
+       	$handle->image_x = 300;
+       	$handle->image_y = 300;
+
+       	// backup current profile pic to temp
+        if( $userdetails->avatar_path ){
+        	// if profile pic isnt default avatar
+        	$backup = true;
+        	$original_file = $abs_us_root.$us_url_root.'img/avatars/'.basename($userdetails->avatar_path);
+        	$temp_file = $abs_us_root.$us_url_root.'img/avatars/temp/'.basename($userdetails->avatar_path);
+        	rename($original_file, $temp_file);
+        }
+
+        $handle->Process($abs_us_root.$us_url_root.'img/avatars');
+
+        // we check if everything went OK
+	        if ($handle->processed) {
+	            // everything was fine !
+
+	        	$fields=array('avatar_path'=>$resource_abs_url.'img/avatars/av_'.$userId.'.png');
+	            $db->update('users',$userId,$fields);
+				$successes[]='Profilový obrázek aktualizován.';
+				//delete backup avatar
+				if($backup){
+					unlink($temp_file);
+				}
+
+	        } else {
+	            // one error occured
+	            $errors[] = $handle->error;
+	            echo '<script>console.log('.$handle->error.');</script>';
+	            // backup avatar picture back
+	            rename($temp_file, $original_file);
+
+	        }
+        // we delete the temporary files
+        $handle-> Clean();
+
+        $avatar_path=$resource_abs_url.'img/avatars/av_'.$userId.'.png';
+    }
+
+    }else{
+		$avatar_path=$userdetails->avatar_path;	}
+
 
 	// update pwd
     if(!empty($_POST['password'])) {
@@ -417,6 +476,11 @@ if(!empty($_POST)) {
 	$language=$userdetails->language;
 	$certificate=$userdetails->certificate;
 	$edu_opinion=$userdetails->edu_opinion;
+	if($userdetails->avatar_path == ""){
+		$avatar_path = $resource_abs_url."img/avatars/default.png";
+	} else {
+		$avatar_path=$userdetails->avatar_path;
+	}
 }
 
 //nezměnitelné columns, yet still visible
@@ -424,17 +488,24 @@ $fname=$userdetails->fname;
 $lname=$userdetails->lname;
 $email=$userdetails->email;
 ?>
+<!-- dialogy -->
+<link rel=stylesheet href="<?php echo $resource_abs_url;?>css/dialog/dialog.css">
+<link rel=stylesheet href="<?php echo $resource_abs_url;?>css/dialog/dialog-sally.css">
+<script src="<?php echo $resource_abs_url;?>js/dialog/snap.svg-min.js"></script>
+<script src="<?php echo $resource_abs_url;?>js/dialog/modernizr.custom.js"></script>
+<script src="<?php echo $resource_abs_url;?>js/dialog/classie.js"></script>
+<script src="<?php echo $resource_abs_url;?>js/dialog/dialogFx.js"></script>
 
 <div id="page-wrapper">
-<img src="<?=$grav; ?>" class="img-thumbnail" alt="Generic placeholder thumbnail">
-<h1><?php echo $fname." ".$lname; ?></h1>
 <h2>Update your user settings</h2>
 
 <div class="errors"><?=display_errors($errors);?></div>
 <div class="successes"><?=display_successes($successes);?></div>
-
-<form name='updateAccount' action='user_settings.php' method='post'>
-
+<h1><?php echo $fname." ".$lname; ?></h1>
+<form name='updateAccount' enctype="multipart/form-data" action='user_settings.php' method='post'>
+	<img src="<?=$avatar_path?>" class="img-thumbnail" alt="Profilový obrázek">
+	<hr>
+	<label for="avatar_path">Nahraj profilový obrázek (jpg, png, bmp; < 2MB):</label><input type="file" id="avatar_path" name="avatar_path" accept=".jpg,.png,.bmp" />
 	<fieldset class="zakl-udaje">
 		<legend>ZÁKLADNÍ ÚDAJE</legend>
 		<label for="city">Bydliště:</label><input type="text" id="city" name="city" placeholder="stačí pouze město" value="<?=$city?>">
@@ -604,6 +675,11 @@ echo (!empty($successes)) ? 'Aktualizace údajů proběhla úspěšně.' : '';
 		add_btn.click( function() {
 			dlg_action.addRow();
 		});
+	});
+
+	$( '#dialog-avatar form' ).submit( function(e){
+		e.preventDefault();
+		$( 'input[name="avatar_path"] ').val($( '#dialog-avatar input[type="file"]' ));
 	});
 
 	$( '#profile-data-form' ).submit( function(e){

@@ -24,19 +24,19 @@ var time;
 var time_set;
 
 $( window ).resize(function() {
-	$('#hlavicka-anim').css('left', (window.innerWidth - $('#hlavicka-anim canvas').width())/2 );
-	$('#hlavicka-anim').css('top',  (window.innerHeight*.8 - $('#hlavicka-anim canvas').height())*.5);
+	$('#header-animation').css('left', (window.innerWidth - $('#header-animation canvas').width())/2 );
+	$('#header-animation').css('top',  (window.innerHeight*.8 - $('#header-animation canvas').height())*.5);
 });
 
 function setup() {
 	var canvas;
 	if(window.innerWidth <= 1000) {
 		canvas = createCanvas(1000, .8*window.innerHeight);
-		canvas.parent('hlavicka-anim');
-		$('#hlavicka-anim').css('left', (window.innerWidth - $('#hlavicka-anim canvas').width())/2 );
+		canvas.parent('header-animation');
+		$('#header-animation').css('left', (window.innerWidth - $('#header-animation canvas').width())/2 );
 	} else {
 		canvas = createCanvas(window.innerWidth, .8*window.innerHeight);
-		canvas.parent('hlavicka-anim');
+		canvas.parent('header-animation');
 	}
 
 	frameRate(30);

@@ -28,6 +28,14 @@ if (!$form_valid && Input::exists()){
 }
 ?>
 
+<!-- dialogy -->
+<link rel=stylesheet href="<?php echo $resource_abs_url;?>css/dialog/dialog.css">
+<link rel=stylesheet href="<?php echo $resource_abs_url;?>css/dialog/dialog-sally.css">
+<script src="<?php echo $resource_abs_url;?>js/dialog/snap.svg-min.js"></script>
+<script src="<?php echo $resource_abs_url;?>js/dialog/modernizr.custom.js"></script>
+<script src="<?php echo $resource_abs_url;?>js/dialog/classie.js"></script>
+	<script src="<?php echo $resource_abs_url;?>js/dialog/dialogFx.js"></script>
+
 
 <form id="profile-data-form" action="<?=$form_action;?>" method="<?=$form_method;?>">
 	<fieldset class="zakl-udaje">

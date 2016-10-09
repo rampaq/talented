@@ -75,10 +75,10 @@ $users = $userQ->results();
 //Cycle through users
 foreach ($users as $v1) {
 
-	$usemail = ucfirst($v1->email);
+	$usemail = $v1->email;
 	$ususerbio = ucfirst($v1->bio);
 	$grav = get_gravatar(strtolower(trim($v1->email)));
-	$useravatar = '<img src="'.$grav.'" class="img-responsive img-thumbnail" alt="'.$usemail.'">';
+	$useravatar = '<img src="'.(($v1->avatar_path)?$v1->avatar_path:$resource_abs_url.'img/avatars/default.png').'" class="img-responsive img-thumbnail" alt="'.$usemail.'">';
 
 ?>
 
