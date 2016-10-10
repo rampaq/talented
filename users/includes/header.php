@@ -75,14 +75,13 @@ if($settings->track_guest == 1){
 	<!-- AKA Secondary CSS -->
 	<link href="<?=$resource_abs_url?>css/default/sb-admin.css" rel="stylesheet">
 
-	<link rel="stylesheet" href="<?php echo $resource_abs_url;?>css/reset.css">
-	<link rel="stylesheet" href="<?php echo $resource_abs_url;?>css/style.css">
-	<link rel="stylesheet" href="<?php echo $resource_abs_url;?>css/customScrollbar.css">
+	<link rel="stylesheet" href="<?=$resource_abs_url;?>css/reset.css">
+	<link rel="stylesheet" href="<?=$resource_abs_url;?>css/style.css">
+	<link rel="stylesheet" href="<?=$resource_abs_url;?>css/customScrollbar.css">
 
-	<script src="<?php echo $resource_abs_url;?>js/lib/jquery-3.0.0.min.js"></script>
-	<script src="<?php echo $resource_abs_url;?>js/class/Menu.js"></script>
-	<script src="<?php echo $resource_abs_url;?>js/utility.js"></script>
-
+	<script src="<?=$resource_abs_url;?>js/lib/jquery-3.0.0.min.js"></script>
+	<script src="<?=$resource_abs_url;?>js/class/Menu.js"></script>
+	<script src="<?=$resource_abs_url;?>js/utility.js"></script>
 
 </head>
 

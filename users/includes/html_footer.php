@@ -19,5 +19,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 ?>
 		<script src="<?php echo $resource_abs_url;?>js/footer.js"></script>
+		<script src="<?=$resource_abs_url;?>js/lib/parallaxify.js"></script>
+		<script>new Parallaxify().registerUpdate();
+		</script>
   	</body>
 </html>

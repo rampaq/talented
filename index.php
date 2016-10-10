@@ -1,11 +1,4 @@
 <?php
-
-if(file_exists("install/index.php")){
-	//perform redirect if installer files exist
-	//this if{} block may be deleted once installed
-	header("Location: install/index.php");
-}
-
 require_once 'users/init.php';
 require_once $abs_us_root.$us_url_root.'users/includes/header.php';
 ?>
@@ -71,7 +64,8 @@ if( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navi
 		<p>
 			Jsme mladá ambiciózní firma, která studentům zprostředkovává brigádu, praxi nebo stáž za účelem získání tolik požadované praxe v prvním zaměstnání.
 		</p>
-		<div class="parallax-window" data-parallax="scroll" data-image-src="<?php echo $resource_abs_url; ?>img/index-00.jpg"></div>
+		<div class="js-Parallaxify" style="background-image: url('<?=$resource_abs_url;?>img/index-00.jpg'); height: 400px;"></div>
+
 		<p>
 			Zároveň bychom chtěli pomoci aktivním studentům, kteří se snaží zdokonalit se ve svém oboru a najít jim možnost uplatnění přesně na míru. U nás si nemyslíme, že by nadaní studenti měli začínat s praxí jen z důvodu zápočtu ve škole nebo až na vysoké škole. Naší prioritou je zlepšit studentovo povědomí o práci ve vysněném oboru už na střední škole, čímž se lišíme od ostatních webových stránek zaměřených na podobnou tématiku.
 		</p>
