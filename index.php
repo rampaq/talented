@@ -59,13 +59,13 @@ if( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navi
 		</p>
 	</section>
 
-	<section id="o-prvni-sanci">
-		<h2>O První šanci</h2>
+	<div class="js-Parallaxify" id="img1" style="background-image: url('<?=$resource_abs_url;?>img/index-01.jpg'); height: 550px;"></div>
+
+	<section id="o-projektu-talented">
+		<h2>O projektu Talented</h2>
 		<p>
 			Jsme mladá ambiciózní firma, která studentům zprostředkovává brigádu, praxi nebo stáž za účelem získání tolik požadované praxe v prvním zaměstnání.
 		</p>
-		<div class="js-Parallaxify" style="background-image: url('<?=$resource_abs_url;?>img/index-00.jpg'); height: 400px;"></div>
-
 		<p>
 			Zároveň bychom chtěli pomoci aktivním studentům, kteří se snaží zdokonalit se ve svém oboru a najít jim možnost uplatnění přesně na míru. U nás si nemyslíme, že by nadaní studenti měli začínat s praxí jen z důvodu zápočtu ve škole nebo až na vysoké škole. Naší prioritou je zlepšit studentovo povědomí o práci ve vysněném oboru už na střední škole, čímž se lišíme od ostatních webových stránek zaměřených na podobnou tématiku.
 		</p>
@@ -73,6 +73,8 @@ if( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navi
 			Nezáleží nám na tom, z jaké střední školy student pochází, ať už je to gymnázium, nebo odborná střední škola. Důležité je, jaké dovednosti student ovládá a hlavně zda se chce zlepšovat a získávat zkušenosti již nyní!
 		</p>
 	</section> <!--end section.o-prvni-sanci-->
+
+	<div class="js-Parallaxify" id="img2" style="background-image: url('<?=$resource_abs_url;?>img/index-03.jpg'); height: 550px;"></div>
 
 	<section id="studenti">
 		<h2>Výhody pro studenty</h2>

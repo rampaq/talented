@@ -20,6 +20,8 @@ Struktura:
 /* 300, 400, 700 */
 @import url(https://fonts.googleapis.com/css?family=Comfortaa:400,300,700&subset=latin,latin-ext);
 
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
 /* dostupné skoro všechny tloušťky + kurzíva
 @import url(https://fonts.googleapis.com/css?family=Roboto&subset=latin,latin-ext); */
 
@@ -38,15 +40,20 @@ Struktura:
     background: transparent;
 }
 
+
 /* - (ii) STANDARDNÍ ELEMENTY - */
 body {
 	font-size: 20px;
-	font-family: 'Comfortaa', Trebuchet MS, sans-serif;
+	font-family: 'Raleway', Trebuchet MS, sans-serif;
 	color: #333;
 	background-color: #F9F7F6;
 	line-height: 1.5;
-}
 
+}
+h2{
+	font-family: 'Raleway', sans-serif;
+	font-size: 40px;
+}
 p {
 	margin: 1.3em 3em;
 	text-align: justify;
@@ -439,11 +446,13 @@ footer div{
 
 /* --- (4) PŘÍDAVNÉ PRVKY STRÁNKY --- */
 .js-Parallaxify {
-  position: relative;
+  position: absolute;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  width: 100%;
+  width: 35%;
   height: 100%;
+
+
 }
 
 /* stretch body child for wow effect*/
@@ -501,4 +510,38 @@ body > .js-Parallaxify { background-size: cover }
 
 #page-wrapper .container{
 	background-color: rgba(255, 255, 255, .4);
+}
+
+#uvod{
+	padding-left: 100px;
+	padding-right: 100px;
+	padding-top: 50px;
+}
+
+#o-projektu-talented{
+	padding-left: 850px;
+	padding-right: 150px;
+	padding-top: 100px;
+
+}
+
+#studenti{
+	padding-left: 100px;
+	padding-right: 950px;
+	margin-top: 120px;
+}
+
+#img1{
+	margin-top: 120px;
+	margin-left: 200px;
+
+}
+
+#img2{
+	margin-top: 100px;
+	margin-left: 1000px;
+}
+
+#firmy{
+	margin-top: 200px;
 }
