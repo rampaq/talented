@@ -9,7 +9,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/header.php';
 if( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) ) {
 	$.getScript("js/p5/p5.min.js");
 	$.getScript("js/p5/hsb2rgb.js");
-	$.getScript("js/animation/header-logo.min.js");
+	$.getScript("js/animation/header-logo.js");
 }
 </script>
 
@@ -58,6 +58,8 @@ if( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navi
 			V První šanci poskytujeme studentům možnost nabrat zkušenosti ve firemním prostředí. Naše práce spočívá v tom, že ti najdeme stáž nebo praxi na míru. Osobně domluvíme detaily a podmínky a podle tvé specifikace ti najdeme stáž u vhodné firmy. Je to jednoduché, zaregistruj se a my Tě kontaktujeme.
 		</p>
 	</section>
+
+	<pre id="output"></pre>
 
 	<section id="o-prvni-sanci">
 		<h2>O První šanci</h2>

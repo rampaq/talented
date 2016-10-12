@@ -47,7 +47,7 @@ function setup() {
 	// -- NASTAVENÍ -- //
 	_string = "TALENTED";
 	textSize(190);
-	main_color_hsb = [88, 0.75, 1]; //HSB (360, 1, 1)
+	main_color_hsb = [88, 0.75, 1]; //ve formátu HSB maxima (360, 1, 1)
 	main_color = hsb2rgb(main_color_hsb[0], main_color_hsb[1], main_color_hsb[2]);
 	main_color = color(main_color[0], main_color[1], main_color[2]);
 	moving_count = 300;
@@ -58,8 +58,15 @@ function setup() {
 	time = 0;
 	time_set = 0;
 
+	// READ COORDINATES FROM FILE
+	if (window.File && window.FileReader && window.FileList && window.Blob) {
+		var reader = new FileReader();
+		reader.readAsDataUrl('./190_Righteous_10.txt');
+	}
+
 	// - create main colors -//
 	main_colors[0] = main_color;
+	// HSB je ve formátu (360, 1, 1)
 	if (_string.length > 1) {
 		var h_step = 360 / (_string.length - 1);
 		var hue = main_color_hsb[0];
@@ -84,37 +91,82 @@ function draw() {
 	if (!initialized) {
 		// -- inicializace bodů a částic -- //
 
-		background(0);
-		fill(255); //white
-		noStroke();
-		text(_string, width/2, height/2 + 20);
+		if (window.File && window.FileReader && window.FileList && window.Blob) {
+			reader.result;
+		} else {
+			background(0);
+			fill(255); //white
+			noStroke();
+			text(_string, width/2, height/2 + 20);
 
-		// - vyhledej body - //
-		var last_x = width/2 - 515; // pozice, ze které zahajovat hledání dalšího písmene
-		var in_gap = true;
+			// - vyhledej body - //
+			var last_x = width/2 - 515; // pozice, ze které zahajovat hledání dalšího písmene
+			var in_gap = true;
 
-		for (var i = 0; i < _string.length; i++) {
-			var coords = [];
-			X:
-				for (var x = last_x + pixel_span; x < width/2 + 515; x += pixel_span) {
-					var exists_point = false;
-					for (var y = height/2 - 140; y < height/2 + 140; y += pixel_span) {
-						last_x = x;
-						var col_p = get(x, y);
-						if (col_p[0] > 0) { //stačí porovnat jeden kanál
-							// detekován bod
-							in_gap = false;
-							exists_point = true;
-							coords.push(createVector(x, y));
-							// když ani na konci sloupce neexistuje jediný bod a pokud předchozí sloupec nebyl mezera, překroč k dalšímu písmenu
-						} else if (!exists_point && y >= height/2 + 140 - pixel_span && !in_gap) {
-							in_gap = true;
-							break X;
+			for (var i = 0; i < _string.length; i++) {
+				var coords = [];
+				X:
+					for (var x = last_x + pixel_span; x < width/2 + 515; x += pixel_span) {
+						var exists_point = false;
+						for (var y = height/2 - 140; y < height/2 + 140; y += pixel_span) {
+							last_x = x;
+							var col_p = get(x, y);
+							if (col_p[0] > 0) { //stačí porovnat jeden kanál
+								// detekován bod
+								in_gap = false;
+								exists_point = true;
+								coords.push(createVector(x, y));
+								// když ani na konci sloupce neexistuje jediný bod a pokud předchozí sloupec nebyl mezera, překroč k dalšímu písmenu
+							} else if (!exists_point && y >= height/2 + 140 - pixel_span && !in_gap) {
+								in_gap = true;
+								break X;
+							}
 						}
 					}
-				}
-			font_points[i] = coords;   //new FontPoints(i, coords));
+				font_points[i] = coords; //new FontPoints(i, coords));
+			}
 		}
+
+
+
+
+// WRITE POINTS TO OUTPUT //
+		// process the points
+		var min_x = 9999;
+		var min_y = 9999;
+		var max_x = 0;
+		var max_y = 0;
+		for(var i = 0; i < _string.length; i++){
+			var coords = font_points[i];
+			for(var j = 0; j < coords.length; j++){
+				if(coords[i].x < min_x){
+					min_x = coords[i].x;
+				}
+				if(coords[i].y < min_y){
+					min_y = coords[i].y;
+				}
+				if(coords[i].x > max_x){
+					max_x = coords[i].x;
+				}
+				if(coords[i].y > max_y){
+					max_y = coords[i].y;
+				}
+			}
+		}
+		// create file with instructions
+		// normalize - translate to origin
+		var font_height = max_y - min_y;
+		var font_width = max_x - min_x;
+		var content = "" + font_width + " " + font_height + "\n"; // sirka vyska
+		for(var i = 0; i < _string.length; i++){
+			var coords = font_points[i];
+			console.log(coords);
+			for(var j = 0; j < coords.length; j++){
+				content += (coords[j].x - min_x) + " " + (coords[j].y - min_y) + "\n"; // x y \n
+			}
+			content += "-" + "\n"; // -
+		}
+		$( '#output' ).text( content );
 
 		// -- creating particles -- //
 		// create static particles
