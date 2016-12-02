@@ -43,7 +43,7 @@ Struktura:
 
 /* - (ii) STANDARDNÍ ELEMENTY - */
 body {
-	font-size: 20px;
+	font-size: 18px;
 	font-family: 'Raleway', Trebuchet MS, sans-serif;
 	color: #333;
 	background-color: #F9F7F6;
@@ -446,11 +446,10 @@ footer div{
 
 /* --- (4) PŘÍDAVNÉ PRVKY STRÁNKY --- */
 .js-Parallaxify {
-  position: absolute;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  width: 35%;
-  height: 100%;
+  width: 100%;
+  /*height: 100%;*/
 
 
 }
@@ -510,38 +509,4 @@ body > .js-Parallaxify { background-size: cover }
 
 #page-wrapper .container{
 	background-color: rgba(255, 255, 255, .4);
-}
-
-#uvod{
-	padding-left: 100px;
-	padding-right: 100px;
-	padding-top: 50px;
-}
-
-#o-projektu-talented{
-	padding-left: 850px;
-	padding-right: 150px;
-	padding-top: 100px;
-
-}
-
-#studenti{
-	padding-left: 100px;
-	padding-right: 950px;
-	margin-top: 120px;
-}
-
-#img1{
-	margin-top: 120px;
-	margin-left: 200px;
-
-}
-
-#img2{
-	margin-top: 100px;
-	margin-left: 1000px;
-}
-
-#firmy{
-	margin-top: 200px;
 }
