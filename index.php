@@ -59,7 +59,7 @@ if( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navi
 		</p>
 	</section>
 
-	<div class="js-Parallaxify" id="img1" style="background-image: url('<?=$resource_abs_url;?>img/index-01.jpg'); height: 50%;"></div>
+	<div class="js-Parallaxify" id="img1" style="background-image: url('<?=$resource_abs_url;?>img/index-01.jpg'); height: 550px;"></div>
 
 	<section id="o-projektu-talented">
 		<h2>O projektu Talented</h2>
@@ -74,7 +74,7 @@ if( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navi
 		</p>
 	</section> <!--end section.o-prvni-sanci-->
 
-	<div class="js-Parallaxify" id="img2" style="background-image: url('<?=$resource_abs_url;?>img/index-03.jpg'); height: 50%;"></div>
+	<div class="js-Parallaxify" id="img2" style="background-image: url('<?=$resource_abs_url;?>img/index-03.jpg'); height: 550px;"></div>
 
 	<section id="studenti">
 		<h2>Výhody pro studenty</h2>
@@ -91,15 +91,6 @@ if( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navi
 
 	<section id="firmy">
 		<h2>Spolupráce s firmami</h2>
-		<p>The regret on our side is, they used to say years ago, we are reading about you in science class. Now they say, we are reading about you in history class.
-
-		It suddenly struck me that that tiny pea, pretty and blue, was the Earth. I put up my thumb and shut one eye, and my thumb blotted out the planet Earth. I didn't feel like a giant. I felt very, very small.
-
-		Dinosaurs are extinct today because they lacked opposable thumbs and the brainpower to build a space program.
-
-		Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which there is no center because every point, or none, is center — an equal earth which all men occupy as equals. The airman's earth, if free men make it, will be truly round: a globe in practice, not in theory.
-
-		</p>
 	</section> <!--end section.firmy-->
 
 	<section id="o-nas">
