@@ -77,7 +77,12 @@ header h2 {
 
 /* - (iio) O SPOLEČNOSTI - */
 #uvod {
-
+	padding: 2em 4em;
+	background-color: white;
+	font-size: 1.25em;
+	width: 100%;
+	margin: 2em 0;
+	font-style: italic;
 }
 
 /* - (iio) O SPOLEČNOSTI - */
@@ -101,6 +106,48 @@ header h2 {
 }
 
 /* - (vii) KONTAKT - */
+#kontakt-img {
+	position: relative;
+}
 #kontakt {
-
+	position: absolute;
+	top: 0;
+}
+#kontakt fieldset {
+	border-top: none;
+}
+#kontakt legend {
+ 	background-color: rgba(255,100,0,.7);
+ 	font-size: 1.3em;
+ 	font-weight: lighter;
+ 	color: white;
+ 	border-radius: 2px;
+ 	padding: .3em .5em;
+ }
+#kontakt input[type="text"], #kontakt textarea {
+ 	background: rgba(0,0,0,.3);
+    border: 1px solid rgba(255,255,255,.2);
+    color: #fff;
+ }
+#kontakt input[type="submit"] {
+ 	background: rgba(255,100,0,.4);
+    border: 1px solid rgba(255,100,0,.8);
+    border-radius: 2px;
+ }
+/*
+#kontakt input:focus, #kontakt textarea:focus {
+	outline: rgba(255,100,0,.3) solid 4px;
+}
+*/
+#kontakt *::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #fff;
+}
+#kontakt *::-moz-placeholder { /* Firefox 19+ */
+  color: #fff;
+}
+#kontakt *:-ms-input-placeholder { /* IE 10+ */
+  color: #fff;
+}
+#kontakt *:-moz-placeholder { /* Firefox 18- */
+  color: #fff;
 }

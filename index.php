@@ -17,7 +17,7 @@ if( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navi
 <div class="menu menu-minimal" id="menu" data-treshold=".header-titles h1">
 	<ul>
 		<li><a href="#" onclick="$( 'html,body' ).animate({scrollTop: 0},'slow');">↑</a></li>
-		<li><a href="#o-prvni-sanci">O První šanci</a></li>
+		<li><a href="#o-projektu-talented">O První šanci</a></li>
 		<li><a href="#studenti">Pro studenty</a></li>
 		<li><a href="#firmy">Pro firmy</a></li>
 		<li><a href="#kontakt">Kontakt</a></li>
@@ -53,9 +53,6 @@ if( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navi
 	<section id="uvod">
 		<p>
 			Považuješ se za nadaného a talentovaného středoškoláka, chceš se ve svém oboru zdokonalovat, ale nemáš možnost? Uvítal bys praxi nebo stáž u firmy, která by tvůj obor dokázala plně rozvinout a umožňovala ti v něm možný budoucí kariérní růst ? Nebo jen hledáš brigádu, která ti dá i něco víc než peníze?
-		</p>
-		<p>
-			V První šanci poskytujeme studentům možnost nabrat zkušenosti ve firemním prostředí. Naše práce spočívá v tom, že ti najdeme stáž nebo praxi na míru. Osobně domluvíme detaily a podmínky a podle tvé specifikace ti najdeme stáž u vhodné firmy. Je to jednoduché, zaregistruj se a my Tě kontaktujeme.
 		</p>
 	</section>
 
@@ -97,29 +94,30 @@ if( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navi
 		<h2>O nás</h2>
 	</section> <!--end section.o-nas-->
 
-	<section id="kontakt">
-		<h2>Kontakt</h2>
-		<h3>Napište nám!</h3>
+	<div class="js-Parallaxify" id="kontakt-img" style="background-image: url('<?=$resource_abs_url;?>img/index-02.jpg'); height: 600px;">
 
-		<form action="sendMail.php" method="post" class="center">
-			<div class="t-left">
-			<fieldset>
-				<legend>Napište nám!</legend>
-				<ul class="no-bullets">
-					<li>
-						<input type="text" name="email" placeholder="*e-mail" size="30">
-					</li>
-					<li>
-						<textarea name="message" placeholder="*text zprávy" rows="10" cols="50"></textarea>
-					</li>
-					<li class="t-center">
-						<input type="submit"/>
-					</li>
-				</ul>
-			</fieldset>
-			</div>
-		</form>
-	</section> <!--end section.kontakt-->
+		<section id="kontakt">
+			<form action="sendMail.php" method="post" class="center">
+				<div class="t-left">
+				<fieldset>
+					<legend>Napište nám!</legend>
+					<ul class="no-bullets">
+						<li>
+							<input type="text" name="email" placeholder="*e-mail" size="30">
+						</li>
+						<li>
+							<textarea name="message" placeholder="*text zprávy" rows="10" cols="50"></textarea>
+						</li>
+						<li class="t-center">
+							<input type="submit"/>
+						</li>
+					</ul>
+				</fieldset>
+				</div>
+			</form>
+		</section> <!--end section.kontakt-->
+
+	</div>
 
 <!-- footers -->
 <?php //require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>
