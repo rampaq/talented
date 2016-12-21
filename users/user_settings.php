@@ -497,7 +497,7 @@ $email=$userdetails->email;
 <script src="<?php echo $resource_abs_url;?>js/dialog/dialogFx.js"></script>
 
 <div id="page-wrapper">
-<h2>Update your user settings</h2>
+<h2>Změna uživatelských údajů</h2>
 
 <div class="errors"><?=display_errors($errors);?></div>
 <div class="successes"><?=display_successes($successes);?></div>
@@ -552,8 +552,10 @@ $email=$userdetails->email;
 	</fieldset>
 
 	<input type="hidden" name="csrf" value="<?=Token::generate();?>" />
-	<input type="submit" value="Odeslat">
-	<a class="btn" href="account.php">Zrušit</a>
+	<div class="t-center">
+		<input type="submit" value="Odeslat">
+		<a class="btn" href="account.php">Zrušit</a>
+	</div>
 </form>
 </div>
 

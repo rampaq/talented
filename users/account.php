@@ -32,28 +32,24 @@ $raw = date_parse($user->data()->join_date);
 $signupdate = $raw['day']."/".$raw['month']."/".$raw['year'];
 $userdetails = fetchUserDetails(NULL, NULL, $get_info_id); //Fetch user details
  ?>
+<table>
+	<tr>
+		<td style="width: 45%; text-align: right;">
+			<a href="user_settings.php"><img src="<?=($userdetails->avatar_path)?$userdetails->avatar_path:$resource_abs_url.'img/avatars/default.png'; ?>" class="img-thumbnail" alt="Profilový obrázek"></a>
+		</td>
+		<td style="width: 45%; text-align: left; margin: 0 1em;vertical-align: middle; padding-left: 1em;">
+			<h1 style="margin-bottom:.5em;"><?=ucfirst($user->data()->fname)." ".ucfirst($user->data()->lname)?></h1>
+			<?=$user->data()->email?><br>
+			Členem od: <?=$signupdate?>
+		</td>
+	</tr>
+</table>
 
-<div id="page-wrapper">
-<div class="container">
-<div class="well">
-<div class="row">
-	<div class="col-xs-12 col-md-3">
-		<a href="user_settings.php"><img src="<?=($userdetails->avatar_path)?$userdetails->avatar_path:$resource_abs_url.'img/avatars/default.png'; ?>" class="img-thumbnail" alt="Profilový obrázek"></a>
-		<p><a href="user_settings.php" class="btn btn-primary">Upravit údaje</a></p>
-		<p><a class="btn btn-primary " href="profile.php?id=<?=$get_info_id;?>" role="button">Public Profile</a></p>
-
-	</div>
-	<div class="col-xs-12 col-md-9">
-		<h1><?=ucfirst($user->data()->fname)." ".ucfirst($user->data()->lname)?></h1>
-		<p><?=$user->data()->email?></p>
-		<p>Členem od: <?=$signupdate?></p>
-	</div>
+<div style="clear:both;">
+<p><a href="user_settings.php" class="btn btn-primary">Upravit údaje</a></p>
+<p><a class="btn btn-primary " href="profile.php?id=<?=$get_info_id;?>" role="button">Public Profile</a></p>
 </div>
-</div>
 
-</div> <!-- /container -->
-
-</div> <!-- /#page-wrapper -->
 
 <!-- PŘIŘAZENÍ HANDLERŮ -->
 <script>

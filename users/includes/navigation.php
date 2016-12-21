@@ -79,4 +79,4 @@ $email_act=$results->email_act;
 		<?php } //end of conditional for menu display ?>
 	</ul>
 </div> <!-- end div.menu -->
-<div style="height: 70px;"></div> <!-- výplň pro menu -->
+<div style="height: 64px;"></div> <!-- výplň pro menu -->

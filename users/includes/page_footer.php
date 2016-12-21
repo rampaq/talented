@@ -22,6 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <div class="f-left">
 	    <p>
 	        <h3>Kontakt</h3>
+            <span><a href="<?=$resource_abs_url?>#kontakt">Kontaktní formulář</a></span>
 	        <h4>Pro informace a domluvu můžete psát na:</span></h4>
 	        e-mail: xxx@neco.cz
 	        <h4>Technické problémy</h4>

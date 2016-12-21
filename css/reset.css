@@ -44,3 +44,7 @@ table {
 	border-spacing: 0px;
 	width: 100%;
 }
+
+input:focus, textarea:focus {
+	outline: none;
+}

@@ -143,7 +143,7 @@ function serializeInput(delimiter, array) {
 
 // všechny prvky zmíněné níže budou obaleny divem, který je umístí doprostřed
 function centerizeEl(){
-	var els = $( '.centerize' ).add( 'input[type="submit"]' );
+	var els = $( '.centerize' )//;.add( 'input[type="submit"]' );
 	els.each( function(i, el){
 		$( el ).wrap( '<div class="t-center"></div>' );
 		$( el ).removeClass( 'centerize' );

@@ -224,3 +224,11 @@ ul.alert-dropdown {
 }
 .dropdown-menu {width: 205px;}
 .top-nav {color:white;}
+
+.special-strip {
+    padding: 2em 4em;
+    font-size: 1.25em;
+    width: 100%;
+    margin: 2em 0;
+    font-style: italic;
+}
