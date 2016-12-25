@@ -660,7 +660,7 @@ echo (!empty($successes)) ? 'Aktualizace údajů proběhla úspěšně.' : '';
 
 		// načtení dat do dialogu ze skrytého pole
 		$( document ).ready( function(){
-				dlg_action.loadData();
+			dlg_action.loadData();
 		});
 		$( toggleEl ).click( function(e) {
 			e.preventDefault();

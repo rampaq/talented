@@ -120,6 +120,8 @@ function DialogAct(dialog) {
 				selects.eq(k).val( select_vals[k] );
 			});
 		}
+
+		$( '#' + hidden_name + '-preview' ).text( string.slice(0, -1).replace(/;/g, ', ').replace(/_/g, ' - ') );
 	}
 
 }
@@ -129,7 +131,7 @@ function DialogAct(dialog) {
 function serializeInput(delimiter, array) {
 	string = "";
 	array.forEach(function(selector, i){
-		console.log(i + selector);
+		//console.log(i + selector);
 		string += $( selector ).val();
 		if(i != array.length - 1){
 			string += delimiter;
